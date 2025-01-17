@@ -1,0 +1,91 @@
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes pulse-bg {
+  0%, 100% {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.progressBarContainer {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+.progressBar {
+  height: 100%;
+  background-color: rgba(59, 130, 246, 0.5);
+  transition: width 0.3s ease-in-out;
+}
+
+:global(.dark) .progressBar {
+  background-color: rgba(236, 72, 153, 0.5); /* Pink color for dark mode */
+}
+
+.progressBarShimmer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+.downloadItem {
+  position: relative;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease-in-out;
+  animation: pulse-bg 2s infinite;
+}
+
+.downloadItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.downloadContent {
+  position: relative;
+  z-index: 10;
+}
+
+.percentageText {
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.speedText {
+  transition: all 0.3s ease-in-out;
+}
+
